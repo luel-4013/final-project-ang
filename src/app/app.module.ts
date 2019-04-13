@@ -17,6 +17,10 @@ import { HeaderNavbarComponent } from './components/header-navbar/header-navbar.
 import { componentFactoryName } from '@angular/compiler';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 const appRoutes: Routes = [
   {path:' ', component:AppComponent},
@@ -48,12 +52,20 @@ const appRoutes: Routes = [
     AdminComponent,
     HeaderNavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
