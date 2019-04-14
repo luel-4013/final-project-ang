@@ -1,35 +1,22 @@
 {
-  "name": "athena-resort",
+  "name": "resort-backend",
   "version": "1.0.0",
-  "description": "Athena Resort and Spa",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "babel-watch server.js"
   },
-  "dependencies": {
-    "express": "*",
-    "mongoose": "*",
-    "bcrypt": "*",
-    "cors": "*",
-    "jsonwebtoken": "*",
-    "body-parser": "*",
-    "passport": "*",
-    "passport-jwt": "*"
-  },
+  "author": "Misgana Workneh",
+  "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-watch": "^7.0.0"
+    "babel-watch": "^2.0.8"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luel-4013/Resort-backend.git"
-  },
-  "author": "Misgana Workneh",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/luel-4013/Resort-backend/issues"
-  },
-  "homepage": "https://github.com/luel-4013/Resort-backend#readme"
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.1"
+  }
 }
