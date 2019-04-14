@@ -20,3 +20,5 @@ let Issue = new Schema({
         default: 'Open'
     },
 });
+
+export default mongoose.model('Issue', Issue);
