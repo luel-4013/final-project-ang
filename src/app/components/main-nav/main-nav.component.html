@@ -1,15 +1,18 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" >
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="!(isHandset$ | async)">
-      <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-        <a mat-list-item href="/">Home</a>
-      <a mat-list-item href="/contact-us">Contact us</a>
-      <a mat-list-item href="/team">Team</a>
-      <a mat-list-item href="/login">Login</a>
-    </mat-nav-list>
+      <mat-toolbar color="blue" >Menu</mat-toolbar>
+    
+        <mat-nav-list>
+            <a mat-list-item href="/">Home</a>
+          <a mat-list-item href="/contact-us">Contact us</a>
+          <a mat-list-item href="/team">Team</a>
+          <a mat-list-item href="/login">Login</a>
+          <a mat-list-item href="/register">Register</a>
+        </mat-nav-list>
+     
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
@@ -19,12 +22,13 @@
         mat-icon-button
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
-        <mat-icon aria-label="Side nav toggle icon">group_work</mat-icon>
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Athena Resort and spa</span>
     </mat-toolbar>
-    <a routerLink="/admin">Admin</a>
+    <ng-content></ng-content>
+    <!-- <a routerLink="/admin">Admin</a>
     This is the home page    
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
