@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'bodyParser';
+import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import Issue from './models/Issue';
@@ -12,7 +12,7 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('');
+mongoose.connect('mongodb://localhost:27017/issues');
 
 const connection = mongoose.connection;
 
@@ -49,22 +49,28 @@ router.route('/issues/add').post((req, res) => {
         });
 });
 
-router.route('/issues/update/:id').post((req, res) =>{
-    Issue.findByIdR(req.params.id, (err, issue) => {
+router.route('/issues/update/:id').post((req, res) => {
+    Issue.findByIds(req.params.id, (err, issue) => {
         if (!issue)
-            return nextTick(new Error('Could not load document'));
+            return next(new Error('Could not load document'));
         else {
             issue.title = req.body.title;
             issue.responsible = req.body.responsible;
             issue.description = req.body.description;
             issue.severity = req.body.severity;
             issue.status = req.body.status;
+
+            issue.save().then(issue => {
+                res.json('Update done');
+            }).catch(err => {
+                res.status(400).send('Udate failed');
+            });
         }
     });
 });
 
-router.route('/issues/delete/:id').get((rqe, res) => {
-    Issue.findByIdAndRemove({_id: req.params.id}, (erre, issue) => {
+router.route('/issues/delete/:id').get((req, res) => {
+    Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
         if (err)
             res.json(err);
         else

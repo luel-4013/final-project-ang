@@ -21,6 +21,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const appRoutes: Routes = [
   {path:' ', component:AppComponent},
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
   {path:'contact-us', component:ContactUsComponent},
   {path:'admin', component:AdminComponent},
   {path:'login', component:LoginComponent},
+  {path:'footer', component:FooterComponent},
   {path:'register', component:RegisterComponent}
 
 ];
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
     HeaderNavbarComponent,
     LoginComponent,
     RegisterComponent,
-    MainNavComponent
+    MainNavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

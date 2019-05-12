@@ -17,11 +17,17 @@
 }
 .mat-toolbar {
   color: white;
-  background-color: brown !important;
+  background-color: darkblue !important;
   height: 7% !important;
 }
 .mat-nav-list {
   height: 93% !important;
-  background-color: moccasin;
+  background-color: rgb(107, 106, 102) ;
 }
-
+.mat-sidenav {
+  height: 100% !important;
+}
+.mat-list-item {
+  color: white;
+  font-weight: inherit;
+}
