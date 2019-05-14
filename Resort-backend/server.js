@@ -4,6 +4,8 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 
 import Issue from './models/Issue';
+import Contactus from './models/Contactus';
+
 import { error } from 'util';
 import { nextTick } from 'q';
 
@@ -12,7 +14,8 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/issues');
+//mongoose.connect('mongodb://localhost:27017/issues');
+mongoose.connect('mongodb://localhost:27017/Resort');
 
 const connection = mongoose.connection;
 
@@ -78,6 +81,32 @@ router.route('/issues/delete/:id').get((req, res) => {
     })
 })
 
+router.route('/contact_us').get((req, res) => {
+    Contactus.find((err, contact_us) => {
+        if (err)
+            console.log(err);
+        else
+        res.json(contact_us);
+    });
+});
+router.route('/contact_us/add').post((req, res) => {
+    let contacts = new Contactus(req.body);
+    contacts.save()
+        .then(contact_us => {
+            res.status(200).json({ 'contacts': 'Contact info send successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create new record');
+        });
+});
+router.route('/contact_us/:id').get((req, res) => {
+    Contactus.findById(req.params.id, (err, contact_us) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(contact_us);
+       });
+});
 app.use('/', router);
 
 app.listen(4000, () => console.log('Express server is running on port 4000'));

@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  //styleUrls: ['./contact-us.component.css', 'bootstrap.min.css']
+  // styleUrls: ['./contact-us.component.css', 'bootstrap.min.css']
   styleUrls: ['../assets/css/bootstrap.min.css', './styles.min.css']
 
 })
