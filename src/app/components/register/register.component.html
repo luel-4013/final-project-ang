@@ -1,33 +1,63 @@
 <div class="row register-form">
   <div class="col-md-8 offset-md-2">
+    
       <form class="custom-form">
-          <h1>Register Form</h1>
+          <h1>Register Form</h1><br/>
           <div class="form-row form-group">
-              <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Frist Name</label></div>
-              <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                First Name
+                <mat-form-field class="full-width">
+                      <input matInput placeholder="First name">
+                  </mat-form-field>
+          </div>
+          
+          <div class="form-row form-group">
+                Second Name
+                <mat-form-field class="full-width">
+                      <input matInput placeholder="Second name">
+                  </mat-form-field>
           </div>
           <div class="form-row form-group">
-              <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Second Name</label></div>
-              <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
+                Phone number
+                <mat-form-field class="full-width">
+                      <input matInput placeholder="Phone number">
+                  </mat-form-field>
+          </div><label for="name-input-field">Gender correct the buttons</label><br/>
+          Male 
+          <mat-form-field class="full-width">
+                <input type="radio">
+            </mat-form-field>
+            Female
+            <mat-form-field class="full-width">
+                  <input type="radio">
+              </mat-form-field>
+          <div class="form-row form-group">
+                Email
+                <mat-form-field class="full-width">
+        
+                        <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                        <mat-hint align="end">Hint: email@domin.com</mat-hint>
+                        <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a vaild email address
+                        </mat-error>
+                    </mat-form-field>
           </div>
           <div class="form-row form-group">
-              <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Phone Number</label></div>
-              <div class="col-sm-6 input-column"><input class="form-control" type="text"></div>
-          </div><label for="name-input-field">Gender</label>
-          <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Male</label></div>
-          <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="formCheck-1">Female</label></div>
-          <div class="form-row form-group">
-              <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Email </label></div>
-              <div class="col-sm-6 input-column"><input class="form-control" type="email"></div>
+                Password
+                <mat-form-field class="full-width">
+                      <input matInput placeholder="Password" type="password">
+                  </mat-form-field>
           </div>
           <div class="form-row form-group">
-              <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Password </label></div>
-              <div class="col-sm-6 input-column"><input class="form-control" type="password"></div>
+                Repeat password
+                <mat-form-field class="full-width">
+                      <input matInput placeholder="Repeat assword" type="password">
+                  </mat-form-field>
           </div>
-          <div class="form-row form-group">
-              <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">Repeat Password </label></div>
-              <div class="col-sm-6 input-column"><input class="form-control" type="password"></div>
-          </div>
-          <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-2"><label class="form-check-label" for="formCheck-2">I've read and accept the terms and conditions</label></div><button class="btn btn-light submit-button" type="button">Register</button></form>
+          <div class="form-check"><input type="checkbox">I've read and accept the terms and conditions </div>
+          
+                  <button class="btn btn-success submit-button" type="button">Register</button>
+          
+        </form>
+  
   </div>
 </div>

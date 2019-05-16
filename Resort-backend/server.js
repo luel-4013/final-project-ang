@@ -6,16 +6,13 @@ import mongoose from 'mongoose';
 import Issue from './models/Issue';
 import Contactus from './models/Contactus';
 
-import { error } from 'util';
-import { nextTick } from 'q';
-
 const app = express();
 const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-//mongoose.connect('mongodb://localhost:27017/issues');
-mongoose.connect('mongodb://localhost:27017/Resort');
+mongoose.connect('mongodb://localhost:27017/issues');
+//mongoose.connect('mongodb://localhost:27017/Resort');
 
 const connection = mongoose.connection;
 
@@ -52,28 +49,22 @@ router.route('/issues/add').post((req, res) => {
         });
 });
 
-router.route('/issues/update/:id').post((req, res) => {
-    Issue.findByIds(req.params.id, (err, issue) => {
+router.route('/issues/update/:id').post((req, res) =>{
+    Issue.findByIdR(req.params.id, (err, issue) => {
         if (!issue)
-            return next(new Error('Could not load document'));
+            return nextTick(new Error('Could not load document'));
         else {
             issue.title = req.body.title;
             issue.responsible = req.body.responsible;
             issue.description = req.body.description;
             issue.severity = req.body.severity;
             issue.status = req.body.status;
-
-            issue.save().then(issue => {
-                res.json('Update done');
-            }).catch(err => {
-                res.status(400).send('Udate failed');
-            });
         }
     });
 });
 
-router.route('/issues/delete/:id').get((req, res) => {
-    Issue.findByIdAndRemove({_id: req.params.id}, (err, issue) => {
+router.route('/issues/delete/:id').get((rqe, res) => {
+    Issue.findByIdAndRemove({_id: req.params.id}, (erre, issue) => {
         if (err)
             res.json(err);
         else
@@ -107,6 +98,7 @@ router.route('/contact_us/:id').get((req, res) => {
             res.json(contact_us);
        });
 });
+
 app.use('/', router);
 
 app.listen(4000, () => console.log('Express server is running on port 4000'));

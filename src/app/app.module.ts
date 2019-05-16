@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+//material section
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +24,15 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './components/main-nav/main-nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CommonModule } from '@angular/common';
+
+
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReservationComponent } from './components/reservation/reservation.component';
+
+
 
 const appRoutes: Routes = [
   {path:' ', component:AppComponent},
@@ -36,6 +47,7 @@ const appRoutes: Routes = [
   {path:'admin', component:AdminComponent},
   {path:'login', component:LoginComponent},
   {path:'footer', component:FooterComponent},
+  {path:'reservation', component:ReservationComponent},
   {path:'register', component:RegisterComponent}
 
 ];
@@ -56,7 +68,8 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     MainNavComponent,
-    FooterComponent
+    FooterComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +81,13 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatInputModule,
+    CommonModule,
+    FormsModule, 
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

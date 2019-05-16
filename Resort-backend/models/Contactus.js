@@ -18,6 +18,10 @@ let Contact_us = new Schema({
     message: {
         type:String
     },
+    creation_dt: {
+        type:Date,
+        default:Date.now()
+    },
 });
 
 export default mongoose.model('Contact_us', Contact_us);
