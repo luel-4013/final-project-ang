@@ -5,14 +5,16 @@ import mongoose from 'mongoose';
 
 import Issue from './models/Issue';
 import Contactus from './models/Contactus';
+import Register from './models/Register';
+import Admin from './models/Admin';
 
 const app = express();
 const router = express.Router();
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/issues');
-//mongoose.connect('mongodb://localhost:27017/Resort');
+//mongoose.connect('mongodb://localhost:27017/issues');
+mongoose.connect('mongodb://localhost:27017/Resort');
 
 const connection = mongoose.connection;
 
@@ -80,6 +82,7 @@ router.route('/contact_us').get((req, res) => {
         res.json(contact_us);
     });
 });
+
 router.route('/contact_us/add').post((req, res) => {
     let contacts = new Contactus(req.body);
     contacts.save()
@@ -97,6 +100,86 @@ router.route('/contact_us/:id').get((req, res) => {
         else
             res.json(contact_us);
        });
+});
+router.route('/contact_us/update/:id').post((req, res) =>{
+    Contactus.findByIdR(req.params.id, (err, contact_us) => {
+        if (!contact_us)
+            return nextTick(new Error('Could not load document'));
+        else {
+            contact_us.firstname = req.body.firstname;
+            contact_us.lastname = req.body.lastname;
+            contact_us.phonenumber = req.body.phonenumber;
+            contact_us.email = req.body.email;
+            contact_us.message = req.body.message;
+            contact_us.creation_dt = req.body.creation_dt;
+        }
+    });
+});
+router.route('/register').get((req, res) => {
+    Register.find().exec()
+    .then(found =>{
+        res.json(found);
+    })
+});
+
+router.route('/register/:id').get((req, res) => {
+    Register.findById(req.params.id, (err, register) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(register);
+       });
+});
+
+router.route('/registers/add').post((req, res) => {
+    console.log(req.body);
+
+    let register = new Register(req.body);
+    register.save()
+        .then(register => {
+            res.status(200).json({ 'register': 'Registerd successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create new record');
+        });
+});
+router.route('/admin').get((req, res) => {
+    Admin.find((err, admin) => {
+        if (err)
+            console.log(err);
+        else
+        res.json(admin);
+    });
+});
+
+router.route('/admin/:id').get((req, res) => {
+    Admin.findById(req.params.id, (err, admin) => {
+        if (err)
+            console.log(err);
+        else
+            res.json(admin);
+       });
+});
+router.route('/admin/add').post((req, res) => {
+    let admin = new Admin(req.body);
+    admin.save()
+        .then(admin => {
+            res.status(200).json({ 'admin': 'admin info send successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create new record');
+        });
+});
+
+router.route('/admin/update/:id').post((req, res) =>{
+    Admin.findByIdR(req.params.id, (err, admin) => {
+        if (!admin)
+            return nextTick(new Error('Could not load document'));
+        else {
+            admin.username = req.body.username;
+            admin.password = req.body.password;
+        }
+    });
 });
 
 app.use('/', router);

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-//material section
+ // material section
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -31,24 +31,26 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationComponent } from './components/reservation/reservation.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 
 const appRoutes: Routes = [
-  {path:' ', component:AppComponent},
-  {path:'team', component:TeamComponent},
-  {path:'meetings', component:MeetingsComponent},
-  {path:'weddings', component:WeddingsComponent},
-  {path:'group-booking', component:GroupBookingsComponent},
-  {path:'specials-and-packages', component:SpecialsAndPackagesComponent},
-  {path:'services', component:ServicesComponent},
-  {path:'packages', component:PackagesComponent},
-  {path:'contact-us', component:ContactUsComponent},
-  {path:'admin', component:AdminComponent},
-  {path:'login', component:LoginComponent},
-  {path:'footer', component:FooterComponent},
-  {path:'reservation', component:ReservationComponent},
-  {path:'register', component:RegisterComponent}
+  {path: '', component: AppComponent},
+  {path: 'team', component: TeamComponent},
+  {path: 'meetings', component: MeetingsComponent},
+  {path: 'weddings', component: WeddingsComponent},
+  {path: 'group-booking', component: GroupBookingsComponent},
+  {path: 'specials-and-packages', component: SpecialsAndPackagesComponent},
+  {path: 'services', component: ServicesComponent},
+  {path: 'packages', component: PackagesComponent},
+  {path: 'contact-us', component: ContactUsComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'footer', component: FooterComponent},
+  {path: 'reservation', component: ReservationComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: '**', component: PageNotFoundComponent}
 
 ];
 
@@ -69,7 +71,8 @@ const appRoutes: Routes = [
     RegisterComponent,
     MainNavComponent,
     FooterComponent,
-    ReservationComponent
+    ReservationComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -85,9 +88,8 @@ const appRoutes: Routes = [
     MatCardModule,
     MatInputModule,
     CommonModule,
-    FormsModule, 
+    FormsModule,
     ReactiveFormsModule
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
