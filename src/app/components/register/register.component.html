@@ -30,16 +30,16 @@
             <mat-form-field class="full-width">
                   <input type="radio">
               </mat-form-field>
-          <div class="form-row form-group">
-                Email
-                <mat-form-field class="full-width">
-        
-                        <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
-                        <mat-hint align="end">Hint: email@domin.com</mat-hint>
-                        <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                            Please enter a vaild email address
-                        </mat-error>
-                    </mat-form-field>
+              <div class="form-row form-group">   
+                        Email
+                    <mat-form-field class="full-width">
+                            <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                            <mat-hint align="end">Hint: email@domin.com</mat-hint>
+                            <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Please enter a vaild email address
+                            </mat-error>
+                        </mat-form-field>
+                  </div>
           </div>
           <div class="form-row form-group">
                 Password

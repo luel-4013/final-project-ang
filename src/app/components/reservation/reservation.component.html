@@ -23,21 +23,32 @@
                     </mat-form-field>
             </div>
             <div class="form-row form-group">
-                Starting date
-                  <mat-form-field class="full-width">
-                        <input matInput type="date">
-                    </mat-form-field>
+                    Starting date
+                    <mat-form-field class="full-width">
+                          <input matInput  placeholder="Starting date" [min]="minDate" [matDatepicker]="dateValids" [formControl]="dateCtrl">
+                          <mat-datepicker-toggle matSuffix [for]="dateValids">  
+                          </mat-datepicker-toggle>
+                          <mat-datepicker #dateValids></mat-datepicker>
+                          <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
+                              A valid date mm/dd/yyyy is required
+                          </mat-error>
+                      </mat-form-field>
           </div>
           <div class="form-row form-group">   
               Ending date
-              <mat-form-field class="full-width">
-                    <input matInput type="date">
+              <mat-form-field>
+                    <input matInput  placeholder="Ending date" [min]="minDate" [matDatepicker]="dateValid" [formControl]="dateCtrl">
+                    <mat-datepicker-toggle matSuffix [for]="dateValid">  
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #dateValid></mat-datepicker>
+                    <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
+                        A valid date mm/dd/yyyy is required
+                    </mat-error>
                 </mat-form-field>
         </div>
         <div class="form-row form-group">   
             Email
         <mat-form-field class="full-width">
-
                 <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
                 <mat-hint align="end">Hint: email@domin.com</mat-hint>
                 <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">

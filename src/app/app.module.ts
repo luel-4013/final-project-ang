@@ -29,6 +29,9 @@ import { CommonModule } from '@angular/common';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { MatDatepickerModule  } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -36,7 +39,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 
 const appRoutes: Routes = [
-  {path: '', component: AppComponent},
+  {path: ' ', component: AppComponent},
   {path: 'team', component: TeamComponent},
   {path: 'meetings', component: MeetingsComponent},
   {path: 'weddings', component: WeddingsComponent},
@@ -89,7 +92,10 @@ const appRoutes: Routes = [
     MatInputModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatMomentDateModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
