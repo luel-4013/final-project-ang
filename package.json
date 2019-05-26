@@ -25,6 +25,7 @@
     "@material-ui/icons": "^3.0.2",
     "connect-mongo": "^2.0.3",
     "core-js": "^2.5.4",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.16.1",
     "hammerjs": "^2.0.8",
