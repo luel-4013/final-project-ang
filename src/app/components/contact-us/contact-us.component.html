@@ -13,12 +13,14 @@
               <div class="info-box"><i class="fa fa-phone-square my-info-icons"></i><span class="text-uppercase text-info">Phone: </span><span>+251920128307</span></div>
           </div>
           <div class="col-12 col-sm-6 col-md-6 site-form">
-              <form id="my-form">
-                  <div class="form-group"><label class="sr-only" for="firstname">First Name</label><input class="form-control" type="text" name="firstname" placeholder="First Name" autofocus="" id="firstname"></div>
-                  <div class="form-group"><label class="sr-only" for="lastname">Last Name</label><input class="form-control" type="text" name="lastname" placeholder="Last Name" id="lastname"></div>
-                  <div class="form-group"><label class="sr-only" for="phonenumber">Phone Number</label><input class="form-control" type="tel" name="phonenumber" required="" placeholder="Phone" id="phonenumber"></div>
-                  <div class="form-group"><label class="sr-only" for="email">Email Address</label><input class="form-control" type="text" name="email" required="" placeholder="Email" id="email"></div>
-                  <div class="form-group"><label class="sr-only" for="messages">Message</label><textarea class="form-control" rows="8" name="messages" required="" placeholder="Message"></textarea></div><button class="btn btn-light btn-lg" type="submit" id="form-btn">SEND </button></form>
+              <form id="my-form" [formGroup]="contactForm" (ngSubmit)="sendContactusForm(contactForm.value)">
+                    <div class="form-group"><label class="sr-only" for="firstname">First Name</label><input class="form-control" type="text" formControlName="firstname" name="firstname" required="" placeholder="First Name" id="firstname"></div>
+                  <div class="form-group"><label class="sr-only" for="lastname">Last Name</label><input class="form-control" type="text" formControlName="lastname" name="lastname" required="" placeholder="Last Name" id="lastname"></div>
+                  <div class="form-group"><label class="sr-only" for="phonenumber">Phone Number</label><input class="form-control" type="tel" formControlName="phonenumber" name="phonenumber" required="" placeholder="Phone" id="phonenumber"></div>
+                  <div class="form-group"><label class="sr-only" for="email">Email Address</label><input class="form-control" type="text" formControlName="email" name="email" required="" placeholder="Email" id="email"></div>
+                  <div class="form-group"><label class="sr-only" for="messages">Message</label><textarea class="form-control" rows="8" formControlName="messages" name="messages" required="" placeholder="Message"></textarea></div><div><button class="btn btn-primary" type="submit">Send</button></div></form>
           </div>
       </div>
   </div>
+
+

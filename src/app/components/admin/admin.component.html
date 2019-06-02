@@ -1,3 +1,10 @@
-<p>
-  admin works!
-</p>
+
+
+
+
+<div *ngFor="let admin of admins">
+  <div>
+    <h3>Admin Name: {{admin.username}}</h3>
+    <h5>ID: {{admin._id}}</h5>
+  </div> 
+</div>

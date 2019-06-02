@@ -1,63 +1,60 @@
-<div class="row register-form">
-  <div class="col-md-8 offset-md-2">
-      <mat-card>
-          <form class="custom-form">
-            <h1>Reservation Form</h1><br/>
-            <div class="form-row form-group">
-                  First Name
-                  <mat-form-field class="full-width">
-                        <input matInput placeholder="First name">
-                    </mat-form-field>
-            </div>
-            
-            <div class="form-row form-group">
-                  Second Name
-                  <mat-form-field class="full-width">
-                        <input matInput placeholder="Second name">
-                    </mat-form-field>
-            </div>
-            <div class="form-row form-group">
-                  Phone number
-                  <mat-form-field class="full-width">
-                        <input matInput placeholder="Phone number">
-                    </mat-form-field>
-            </div>
-            <div class="form-row form-group">
-                    Starting date
+<div class="col-md-8 offset-md-2">
+        <mat-card>
+            <form class="custom-form">
+              <h1 class="text-center">Reservation Form</h1><br/>
+              <div class="form-row form-group">
                     <mat-form-field class="full-width">
-                          <input matInput  placeholder="Starting date" [min]="minDate" [matDatepicker]="dateValids" [formControl]="dateCtrl">
-                          <mat-datepicker-toggle matSuffix [for]="dateValids">  
-                          </mat-datepicker-toggle>
-                          <mat-datepicker #dateValids></mat-datepicker>
-                          <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
-                              A valid date mm/dd/yyyy is required
-                          </mat-error>
+                          <input matInput placeholder="First name">
                       </mat-form-field>
+              </div>
+              
+              <div class="form-row form-group">
+                    <mat-form-field class="full-width">
+                          <input matInput placeholder="Second name">
+                      </mat-form-field>
+              </div>
+              <div class="form-row form-group">
+                    <mat-form-field class="full-width">
+                          <input matInput placeholder="Phone number">
+                          <mat-icon matSuffix>phone</mat-icon>
+                      </mat-form-field>
+              </div>
+              <div class="form-row form-group">
+                      <mat-form-field class="full-width">
+                            <input matInput  placeholder="Starting date" [min]="minDate" [matDatepicker]="dateValids" [formControl]="dateCtrl">
+                            <mat-datepicker-toggle matSuffix [for]="dateValids">  
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #dateValids></mat-datepicker>
+                            <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
+                                A valid date mm/dd/yyyy is required
+                            </mat-error>
+                        </mat-form-field>
+            </div>
+            <div class="form-row form-group">   
+                <mat-form-field class="full-width">
+                      <input matInput  placeholder="Ending date" [min]="minDate" [matDatepicker]="dateValid" [formControl]="dateCtrl">
+                      <mat-datepicker-toggle matSuffix [for]="dateValid">  
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #dateValid></mat-datepicker>
+                      <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
+                          A valid date mm/dd/yyyy is required
+                      </mat-error>
+                  </mat-form-field>
           </div>
           <div class="form-row form-group">   
-              Ending date
-              <mat-form-field>
-                    <input matInput  placeholder="Ending date" [min]="minDate" [matDatepicker]="dateValid" [formControl]="dateCtrl">
-                    <mat-datepicker-toggle matSuffix [for]="dateValid">  
-                    </mat-datepicker-toggle>
-                    <mat-datepicker #dateValid></mat-datepicker>
-                    <mat-error align="end" *ngIf="dateCtrl.hasError('required')">
-                        A valid date mm/dd/yyyy is required
-                    </mat-error>
-                </mat-form-field>
+          <mat-form-field class="full-width">
+                  <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                  <mat-hint align="end">Hint: email@domin.com</mat-hint>
+                  <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                      Please enter a vaild email address
+                  </mat-error>
+              </mat-form-field>
         </div>
-        <div class="form-row form-group">   
-            Email
-        <mat-form-field class="full-width">
-                <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
-                <mat-hint align="end">Hint: email@domin.com</mat-hint>
-                <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                    Please enter a vaild email address
-                </mat-error>
-            </mat-form-field>
+    <div class="full-width">
+            <button class="btn btn-success submit-button " type="button">Send Reservation</button>
+
+    </div>
+            </form>
+          </mat-card>
       </div>
-  <button class="btn btn-success submit-button" type="button">Send Reservation</button>
-          </form>
-        </mat-card>    
-    </div>
-    </div>
+  

@@ -1,63 +1,49 @@
-<div class="row register-form">
-  <div class="col-md-8 offset-md-2">
-    
-      <form class="custom-form">
-          <h1>Register Form</h1><br/>
-          <div class="form-row form-group">
-                First Name
-                <mat-form-field class="full-width">
-                      <input matInput placeholder="First name">
-                  </mat-form-field>
-          </div>
-          
-          <div class="form-row form-group">
-                Second Name
-                <mat-form-field class="full-width">
-                      <input matInput placeholder="Second name">
-                  </mat-form-field>
-          </div>
-          <div class="form-row form-group">
-                Phone number
-                <mat-form-field class="full-width">
-                      <input matInput placeholder="Phone number">
-                  </mat-form-field>
-          </div><label for="name-input-field">Gender correct the buttons</label><br/>
-          Male 
-          <mat-form-field class="full-width">
-                <input type="radio">
-            </mat-form-field>
-            Female
-            <mat-form-field class="full-width">
-                  <input type="radio">
-              </mat-form-field>
-              <div class="form-row form-group">   
-                        Email
-                    <mat-form-field class="full-width">
-                            <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
-                            <mat-hint align="end">Hint: email@domin.com</mat-hint>
-                            <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                                Please enter a vaild email address
-                            </mat-error>
-                        </mat-form-field>
+<div class="col-md-8 offset-md-2">
+            <mat-card>
+                <form>
+                  <h1 class="text-center">Register Form</h1><br/>
+                  <div class="form-row form-group">
+                        <mat-form-field class="full-width">
+                              <input matInput placeholder="First name">
+                          </mat-form-field>
                   </div>
-          </div>
-          <div class="form-row form-group">
-                Password
-                <mat-form-field class="full-width">
-                      <input matInput placeholder="Password" type="password">
+                  
+                  <div class="form-row form-group">
+                        <mat-form-field class="full-width">
+                              <input matInput placeholder="Second name">
+                          </mat-form-field>
+                  </div>
+                  <div class="form-row form-group">
+                        <mat-form-field class="full-width">
+                              <input matInput placeholder="Phone number">
+                          </mat-form-field>
+                  </div>
+                  
+              <div class="form-row form-group">   
+              <mat-form-field class="full-width">
+                      <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
+                      <mat-hint align="end">Hint: email@domin.com</mat-hint>
+                      <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                          Please enter a vaild email address
+                      </mat-error>
                   </mat-form-field>
+                  
+            </div>
+            <div class="form-row form-group">
+                        <mat-form-field class="full-width">
+                              <input matInput placeholder="Password" type="password">
+                          </mat-form-field>
+                  </div>
+                  <div class="form-row form-group">
+                              <mat-form-field class="full-width">
+                                    <input matInput placeholder="Repeat Password" type="password">
+                                </mat-form-field>
+                        </div>
+        <div class="full-width">
+                <button class="btn btn-success submit-button " type="button">Register</button>
+    
+        </div>
+                </form>
+              </mat-card>    
           </div>
-          <div class="form-row form-group">
-                Repeat password
-                <mat-form-field class="full-width">
-                      <input matInput placeholder="Repeat assword" type="password">
-                  </mat-form-field>
-          </div>
-          <div class="form-check"><input type="checkbox">I've read and accept the terms and conditions </div>
-          90
-                  <button class="btn btn-success submit-button" type="button">Register</button>
-          
-        </form>
-  
-  </div>
-</div>
+      

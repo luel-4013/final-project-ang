@@ -35,6 +35,7 @@ import { MatDatepickerModule  } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -95,7 +96,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatTabsModule,
     MatMomentDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
