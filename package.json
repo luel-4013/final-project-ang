@@ -34,6 +34,7 @@
     "moment": "^2.24.0",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.18",
+    "ngx-qrcode2": "0.0.9",
     "ngx-spinner": "^7.1.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",

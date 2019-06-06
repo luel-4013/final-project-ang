@@ -15,7 +15,7 @@ let Contact_us = new Schema({
     email: {
         type:String
     },
-    message: {
+    messages: {
         type:String
     },
     creation_dt: {

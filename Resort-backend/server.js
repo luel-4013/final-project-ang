@@ -110,7 +110,7 @@ router.route('/contact_us/update/:id').post((req, res) =>{
             contact_us.lastname = req.body.lastname;
             contact_us.phonenumber = req.body.phonenumber;
             contact_us.email = req.body.email;
-            contact_us.message = req.body.message;
+            contact_us.messages = req.body.messages;
             contact_us.creation_dt = req.body.creation_dt;
         }
     });
