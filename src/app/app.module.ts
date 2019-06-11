@@ -36,11 +36,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomepageComponent } from './components/homepage/homepage.component';
 
 
 
 const appRoutes: Routes = [
-  {path: ' ', component: AppComponent},
+  {path: '', component: HomepageComponent},
   {path: 'team', component: TeamComponent},
   {path: 'meetings', component: MeetingsComponent},
   {path: 'weddings', component: WeddingsComponent},
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     MainNavComponent,
     FooterComponent,
     ReservationComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
