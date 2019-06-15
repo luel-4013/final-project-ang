@@ -1,44 +1,68 @@
 <div class="col-md-8 offset-md-2">
             <mat-card>
-                <form>
+                <form [formGroup]="RegisterForm" (ngSubmit)="sendRegisterinfo(contactForm.value)">
                   <h1 class="text-center">Register Form</h1><br/>
-                  <div class="form-row form-group">
+                  <div class="form-row form-group ">
                         <mat-form-field class="full-width">
-                              <input matInput placeholder="First name">
+                              <input matInput placeholder="First name" formControlName="firstname">
                           </mat-form-field>
                   </div>
                   
                   <div class="form-row form-group">
                         <mat-form-field class="full-width">
-                              <input matInput placeholder="Second name">
+                              <input matInput placeholder="Second name" formControlName="secondname">
                           </mat-form-field>
                   </div>
                   <div class="form-row form-group">
+                    <mat-form-field class="full-width">
+                          <input matInput placeholder="Username" formControlName="username">
+                      </mat-form-field>
+              </div>
+                  <div class="form-row form-group">
+                      <mat-form-field class="full-width">
+                          <input matInput placeholder="Country" formControlName="country">
+                      </mat-form-field>
+                      <mat-form-field class="full-width">
+                            <input matInput placeholder="City" formControlName="city">
+                      </mat-form-field>
+                  </div>
+                 <div class="form-row form-group">
+                     <mat-radio-group [(ngModel)]="Gender">
+                         <h5>Select Gender</h5>
+                         <mat-radio-button  value="Male" formControlName="male"> Male</mat-radio-button>
+                         <mat-radio-button  value="Female" formControlName="female">Female</mat-radio-button>
+                     </mat-radio-group>                    
+              </div>
+                  <div class="form-row form-group">
                         <mat-form-field class="full-width">
-                              <input matInput placeholder="Phone number">
+                              <input matInput placeholder="Phone number" formControlName="phonenumber">
                           </mat-form-field>
                   </div>
                   
-              <div class="form-row form-group">   
-              <mat-form-field class="full-width">
-                      <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher">
-                      <mat-hint align="end">Hint: email@domin.com</mat-hint>
-                      <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                          Please enter a vaild email address
-                      </mat-error>
-                  </mat-form-field>
-                  
+            <div class="form-row form-group">   
+                    <mat-form-field class="full-width">
+                            <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" formControlName="email">
+                            <mat-hint align="end">Hint: email@domin.com</mat-hint>
+                            <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Please enter a vaild email address
+                            </mat-error>
+                        </mat-form-field>
+                        
             </div>
             <div class="form-row form-group">
-                        <mat-form-field class="full-width">
-                              <input matInput placeholder="Password" type="password">
+                        <mat-form-field class="full-width ">
+                              <input matInput placeholder="Password" type="password" formControlName="password">
                           </mat-form-field>
                   </div>
-                  <div class="form-row form-group">
-                              <mat-form-field class="full-width">
-                                    <input matInput placeholder="Repeat Password" type="password">
-                                </mat-form-field>
-                        </div>
+            <div class="form-row form-group">
+                      <mat-radio-group [(ngModel)]="lifeStatus">
+                        <h5>Life status</h5><br/>
+                        <mat-radio-button  value="Male" formControlName="student">Student</mat-radio-button><br/>
+                        <mat-radio-button  value="Female" formControlName="employee">Employee</mat-radio-button><br/>
+                        <mat-radio-button  value="Female" formControlName="studemp">Both student and employee</mat-radio-button>
+                    </mat-radio-group>
+              </div>
+
         <div class="full-width">
                 <button class="btn btn-success submit-button " type="button">Register</button>
     

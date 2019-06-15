@@ -115,14 +115,14 @@ router.route('/contact_us/update/:id').post((req, res) =>{
         }
     });
 });
-router.route('/register').get((req, res) => {
+router.route('/registers').get((req, res) => {
     Register.find().exec()
     .then(found =>{
         res.json(found);
     })
 });
 
-router.route('/register/:id').get((req, res) => {
+router.route('/registers/:id').get((req, res) => {
     Register.findById(req.params.id, (err, register) => {
         if (err)
             console.log(err);

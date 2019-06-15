@@ -23,5 +23,26 @@ export class ResortService {
   sendContactInfo(data: object) {
     return this.http.post<any>(`${this.baseUrl}contact_us/add`, data);
   }
+  sendRegisterationInfo(data: object) {
+    return this.http.post<any>(`${this.baseUrl}registers/add`, data); }
+
+  registerUsers(firstname, secondname, username, phonenumber, email, gender, password, country, city, lifeStatus) {
+    const register = {
+      firstname: firstname,
+      secondname: secondname,
+      username: username,
+      phonenumber: phonenumber,
+      email: email,
+      gender: gender,
+      password: password,
+      country: country,
+      city: city,
+      lifeStatus: lifeStatus
+    };
+    return this.http.post(`${this.baseUrl}registers/add`, register);
+
+
+    //add some funs jstincs
+  }
 
 }

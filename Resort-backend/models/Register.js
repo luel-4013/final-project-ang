@@ -3,13 +3,10 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 let Register = new Schema({
-    fname: {
+    firstname: {
         type:String
     },
-    sname: {
-        type:String
-    },
-    username: {
+    secondname: {
         type:String
     },
     phonenumber: {
@@ -18,10 +15,13 @@ let Register = new Schema({
     email: {
         type:String
     },
+    gender: {
+        type:String
+    },
     password: {
         type:String
     },
-    gender: {
+    username: {
         type:String
     },
     country: {
@@ -30,10 +30,7 @@ let Register = new Schema({
     city: {
         type:String
     },
-    life_status: {
-        type:String
-    },
-    marriage_status: {
+    lifeStatus: {
         type:String
     },
     creation_dt: {

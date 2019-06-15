@@ -12,7 +12,7 @@ import { ResortService } from 'src/app/services/resort.service';
 
 })
 export class ContactUsComponent implements OnInit {
-  contactForm = FormGroup;
+  contactForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -22,11 +22,11 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm = this.fb.group({
-      firstname: [''],
-      lastname: [''],
-      phonenumber: [''],
-      email: [''],
-      messages: ['']
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      phonenumber: ['', Validators.required],
+      email: ['', Validators.required],
+      messages: ['',Validators.required]
     });
   }
 
