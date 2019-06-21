@@ -26,8 +26,8 @@ export class RegisterComponent implements OnInit {
   RegisterForm: FormGroup;
 
 
-  Gender: string;
-  lifeStatus: string;
+  // Gender: string;
+  // lifeStatus: string;
 
   emailFormControl: FormControl;
 
@@ -56,9 +56,17 @@ export class RegisterComponent implements OnInit {
       Validators.required,
       Validators.email
     ]);
-
-    
-
+  }
+  
+  registerUsers(data){
+    this.resortService.sendRegisterationInfo(data)
+    .subscribe(
+      res => console.log (res)
+    );
+    this.resetForm();
+  }
+  resetForm(){
+    this.RegisterForm.reset();
   }
 
 }

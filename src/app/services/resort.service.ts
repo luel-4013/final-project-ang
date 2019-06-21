@@ -26,6 +26,7 @@ export class ResortService {
   sendRegisterationInfo(data: object) {
     return this.http.post<any>(`${this.baseUrl}registers/add`, data); }
 
+
   registerUsers(firstname, secondname, username, phonenumber, email, gender, password, country, city, lifeStatus) {
     const register = {
       firstname: firstname,
@@ -43,6 +44,17 @@ export class ResortService {
 
 
     //add some funs jstincs
+  }
+  sendLogin(data:object){
+    return this.http.post<any>(`${this.baseUrl}logins/add`, data);
+  }
+
+  registerLogin(email, password){
+    const login = {
+      email: email,
+      password: password
+    };
+    return this.http.post(`${this.baseUrl}logins/add`, login)
   }
 
 }

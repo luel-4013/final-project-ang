@@ -9,9 +9,9 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./reservation.component.css']
 })
 export class ReservationComponent implements OnInit {
-
   minDate = new Date();
   dateCtrl: FormControl;
+
   emailFormControl: FormControl;
 
   constructor() { }

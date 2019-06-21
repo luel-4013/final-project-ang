@@ -1,47 +1,47 @@
 <div class="col-md-8 offset-md-2">
             <mat-card>
-                <form [formGroup]="RegisterForm" (ngSubmit)="sendRegisterinfo(contactForm.value)">
+                <form [formGroup]="RegisterForm" (ngSubmit)="registerUsers(RegisterForm.value)">
                   <h1 class="text-center">Register Form</h1><br/>
-                  <div class="form-row form-group ">
+                  <div class="form-row form-group" >
                         <mat-form-field class="full-width">
-                              <input matInput placeholder="First name" formControlName="firstname">
+                              <input matInput placeholder="First name" formControlName="firstname" name="firstname">
                           </mat-form-field>
                   </div>
                   
                   <div class="form-row form-group">
                         <mat-form-field class="full-width">
-                              <input matInput placeholder="Second name" formControlName="secondname">
+                              <input matInput placeholder="Second name" formControlName="secondname" name="secondname">
                           </mat-form-field>
                   </div>
                   <div class="form-row form-group">
                     <mat-form-field class="full-width">
-                          <input matInput placeholder="Username" formControlName="username">
+                          <input matInput placeholder="Username" formControlName="username" name="username">
                       </mat-form-field>
               </div>
-                  <div class="form-row form-group">
+            <div class="form-row form-group">
                       <mat-form-field class="full-width">
-                          <input matInput placeholder="Country" formControlName="country">
+                          <input matInput placeholder="Country" formControlName="country" name="country">
                       </mat-form-field>
                       <mat-form-field class="full-width">
-                            <input matInput placeholder="City" formControlName="city">
-                      </mat-form-field>
-                  </div>
+                            <input matInput placeholder="City" formControlName="city" name="city">
+                        </mat-form-field>
+            </div>
                  <div class="form-row form-group">
-                     <mat-radio-group [(ngModel)]="Gender">
+                     <mat-radio-group [(ngModel)]="gender" formControlName="gender">
                          <h5>Select Gender</h5>
-                         <mat-radio-button  value="Male" formControlName="male"> Male</mat-radio-button>
-                         <mat-radio-button  value="Female" formControlName="female">Female</mat-radio-button>
+                         <mat-radio-button  value="male" > Male</mat-radio-button>
+                         <mat-radio-button  value="female" >Female</mat-radio-button>
                      </mat-radio-group>                    
               </div>
                   <div class="form-row form-group">
                         <mat-form-field class="full-width">
-                              <input matInput placeholder="Phone number" formControlName="phonenumber">
+                              <input matInput placeholder="Phone number" formControlName="phonenumber" name="phonenumber" type="tel">
                           </mat-form-field>
                   </div>
                   
             <div class="form-row form-group">   
                     <mat-form-field class="full-width">
-                            <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" formControlName="email">
+                            <input matInput placeholder="Email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" formControlName="email" name="email" type="text">
                             <mat-hint align="end">Hint: email@domin.com</mat-hint>
                             <mat-error align="end" *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                 Please enter a vaild email address
@@ -55,16 +55,16 @@
                           </mat-form-field>
                   </div>
             <div class="form-row form-group">
-                      <mat-radio-group [(ngModel)]="lifeStatus">
+                      <mat-radio-group [(ngModel)]="lifeStatus" formControlName="lifeStatus">
                         <h5>Life status</h5><br/>
-                        <mat-radio-button  value="Male" formControlName="student">Student</mat-radio-button><br/>
-                        <mat-radio-button  value="Female" formControlName="employee">Employee</mat-radio-button><br/>
-                        <mat-radio-button  value="Female" formControlName="studemp">Both student and employee</mat-radio-button>
+                        <mat-radio-button  value="student" >Student</mat-radio-button><br/>
+                        <mat-radio-button  value="employee" >Employee</mat-radio-button><br/>
+                        <mat-radio-button  value="bothsae" >Both student and employee</mat-radio-button>
                     </mat-radio-group>
               </div>
 
         <div class="full-width">
-                <button class="btn btn-success submit-button " type="button">Register</button>
+                <button class="btn btn-success submit-button " type="submit">Register</button>
     
         </div>
                 </form>

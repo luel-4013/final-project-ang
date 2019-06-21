@@ -7,6 +7,7 @@ import Issue from './models/Issue';
 import Contactus from './models/Contactus';
 import Register from './models/Register';
 import Admin from './models/Admin';
+import Login from './models/Login';
 
 const app = express();
 const router = express.Router();
@@ -115,6 +116,14 @@ router.route('/contact_us/update/:id').post((req, res) =>{
         }
     });
 });
+router.route('/contact_us/delete/:id').get((rqe, res) => {
+    Issue.findByIdAndRemove({_id: req.params.id}, (erre, issue) => {
+        if (err)
+            res.json(err);
+        else
+            res.json('Removed successfully');
+    })
+})
 router.route('/registers').get((req, res) => {
     Register.find().exec()
     .then(found =>{
@@ -123,11 +132,11 @@ router.route('/registers').get((req, res) => {
 });
 
 router.route('/registers/:id').get((req, res) => {
-    Register.findById(req.params.id, (err, register) => {
+    Register.findById(req.params.id, (err, registers) => {
         if (err)
             console.log(err);
         else
-            res.json(register);
+            res.json(registers);
        });
 });
 
@@ -143,7 +152,33 @@ router.route('/registers/add').post((req, res) => {
             res.status(400).send('Failed to create new record');
         });
 });
-router.route('/admin').get((req, res) => {
+router.route('/registers/update/:id').post((req, res) =>{
+    Register.findByIdR(req.params.id, (err, registers) => {
+        if (!registers)
+            return nextTick(new Error('Could not load document'));
+        else {
+            register.firstname = req.body.firstname;
+            register.secondname =  req.body.secondname;
+            register.phonenumber = req.body.phonenumbe;
+            register.email = req.body.email;
+            register.password = req.body.password;
+            register.username = req.body.username;
+            register.country = req.body.country;
+            register.city = req.body.city;
+            register.lifeStatus = req.body.lifeStatus;
+        }
+    });
+});
+
+router.route('/registers/delete/:id').get((rqe, res) => {
+    Register.findByIdAndRemove({_id: req.params.id}, (erre, registers) => {
+        if (err)
+            res.json(err);
+        else
+            res.json('Removed successfully');
+    })
+})
+router.route('/admins').get((req, res) => {
     Admin.find((err, admin) => {
         if (err)
             console.log(err);
@@ -152,7 +187,7 @@ router.route('/admin').get((req, res) => {
     });
 });
 
-router.route('/admin/:id').get((req, res) => {
+router.route('/admins/:id').get((req, res) => {
     Admin.findById(req.params.id, (err, admin) => {
         if (err)
             console.log(err);
@@ -160,7 +195,7 @@ router.route('/admin/:id').get((req, res) => {
             res.json(admin);
        });
 });
-router.route('/admin/add').post((req, res) => {
+router.route('/admins/add').post((req, res) => {
     let admin = new Admin(req.body);
     admin.save()
         .then(admin => {
@@ -171,7 +206,7 @@ router.route('/admin/add').post((req, res) => {
         });
 });
 
-router.route('/admin/update/:id').post((req, res) =>{
+router.route('/admins/update/:id').post((req, res) =>{
     Admin.findByIdR(req.params.id, (err, admin) => {
         if (!admin)
             return nextTick(new Error('Could not load document'));
@@ -180,6 +215,40 @@ router.route('/admin/update/:id').post((req, res) =>{
             admin.password = req.body.password;
         }
     });
+});
+router.route('/admins/delete/:id').get((rqe, res) => {
+    Admin.findByIdAndRemove({_id: req.params.id}, (erre, admin) => {
+        if (err)
+            res.json(err);
+        else
+            res.json('Removed successfully');
+    })
+});
+// router.route('/admins').get((req, res) => {
+//     Admin.find((err, admin) => {
+//         if (err)
+//             console.log(err);
+//         else
+//         res.json(admin);
+//     });
+// });
+router.route('/logins').get((req, res) => {
+    Login.find((err, login) => {
+        if (err)
+            console.log(err);
+        else
+        res.json(login);
+    });
+});
+router.route('/logins/add').post((req, res) => {
+    let login = new Login(req.body);
+    login.save()
+        .then(login => {
+            res.status(200).json({ 'login': 'login successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('Failed to create new record');
+        });
 });
 
 app.use('/', router);

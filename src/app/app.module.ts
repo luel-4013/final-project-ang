@@ -8,14 +8,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeamComponent } from './components/team/team.component';
 import { MeetingsComponent } from './components/meetings/meetings.component';
-import { WeddingsComponent } from './components/weddings/weddings.component';
+// import { WeddingsComponent } from './components/weddings/weddings.component';
 import { GroupBookingsComponent } from './components/group-bookings/group-bookings.component';
 import { SpecialsAndPackagesComponent } from './components/specials-and-packages/specials-and-packages.component';
 import { ServicesComponent } from './components/services/services.component';
 import { PackagesComponent } from './components/packages/packages.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { HeaderNavbarComponent } from './components/header-navbar/header-navbar.component';
+// import { HeaderNavbarComponent } from './components/header-navbar/header-navbar.component';
 import { componentFactoryName } from '@angular/compiler';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -39,24 +39,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { ResortService } from './services/resort.service';
+// import { Ng2CarouselamosModule } from 'ng2-carouselamos';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 
 
 const appRoutes: Routes = [
   {path: '', component: HomepageComponent},
   {path: 'team', component: TeamComponent},
-  {path: 'meetings', component: MeetingsComponent},
-  {path: 'weddings', component: WeddingsComponent},
-  {path: 'group-booking', component: GroupBookingsComponent},
+  {path: 'meetings&events', component: MeetingsComponent},//was meeting
+  // {path: 'weddings', component: WeddingsComponent},
+  {path: 'rooms&suites', component: GroupBookingsComponent},//was group-boooking
   {path: 'specials-and-packages', component: SpecialsAndPackagesComponent},
-  {path: 'services', component: ServicesComponent},
-  {path: 'packages', component: PackagesComponent},
+  // {path: 'services', component: ServicesComponent}, //is cancled
+  {path: 'spa', component: PackagesComponent},//was packages
   {path: 'contact-us', component: ContactUsComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'login', component: LoginComponent},
   {path: 'footer', component: FooterComponent},
   {path: 'reservation', component: ReservationComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'gallery', component: GalleryComponent},
   {path: '**', component: PageNotFoundComponent}
 
 ];
@@ -66,21 +70,22 @@ const appRoutes: Routes = [
     AppComponent,
     TeamComponent,
     MeetingsComponent,
-    WeddingsComponent,
+    // WeddingsComponent,
     GroupBookingsComponent,
     SpecialsAndPackagesComponent,
-    ServicesComponent,
+    // ServicesComponent,
     PackagesComponent,
     ContactUsComponent,
     AdminComponent,
-    HeaderNavbarComponent,
+    // HeaderNavbarComponent,
     LoginComponent,
     RegisterComponent,
     MainNavComponent,
     FooterComponent,
     ReservationComponent,
     PageNotFoundComponent,
-    HomepageComponent
+    HomepageComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +114,9 @@ const appRoutes: Routes = [
     MatTableModule, 
     MatDividerModule, 
     MatSnackBarModule, 
-    MatMenuModule
+    MatMenuModule,
+    // Ng2CarouselamosModule
+    NgbModule
   ],
   providers: [ResortService],
   bootstrap: [AppComponent]
